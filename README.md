@@ -1,2 +1,2 @@
 # KishanSathi-Frontend
-For Farmers
+For Farmers From College students
