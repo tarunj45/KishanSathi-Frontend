@@ -33,7 +33,7 @@ export default function ForgotPasswordPage() {
               Send reset link
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Link href="/auth/login">
+            <Link href="/?auth=login">
               <Button variant="secondary">Back to login</Button>
             </Link>
           </div>

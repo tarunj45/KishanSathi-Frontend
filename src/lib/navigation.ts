@@ -16,7 +16,7 @@ import {
   UserRoundCog,
 } from "lucide-react";
 
-import type { NavigationItem } from "@/lib/types";
+import type { NavigationGroup, NavigationItem } from "@/lib/types";
 
 export const primaryNavigation: NavigationItem[] = [
   {
@@ -111,6 +111,50 @@ export const primaryNavigation: NavigationItem[] = [
   },
 ];
 
+export const navigationGroups: NavigationGroup[] = [
+  {
+    title: "Overview",
+    items: [primaryNavigation[0]],
+  },
+  {
+    title: "Advisory",
+    items: [
+      primaryNavigation[1], // Crop Advisory
+      primaryNavigation[2], // Weather Intelligence
+      primaryNavigation[3], // Irrigation Planning
+      primaryNavigation[4], // Crop Disease
+      primaryNavigation[9], // Crop Calendar
+      primaryNavigation[10], // Pest Alerts
+    ],
+  },
+  {
+    title: "Finance & Market",
+    items: [
+      primaryNavigation[5], // Market Prices
+      primaryNavigation[7], // Expense Tracker
+      primaryNavigation[8], // Profit Calculator
+    ],
+  },
+  {
+    title: "Assistant & Account",
+    items: [
+      primaryNavigation[6], // Voice Assistant
+      primaryNavigation[11], // Notifications
+      primaryNavigation[12], // Profile
+      primaryNavigation[13], // Settings
+    ],
+  },
+];
+
+// Quick-access modules for the mobile bottom navigation bar.
+export const mobileNavigation: NavigationItem[] = [
+  primaryNavigation[0], // Dashboard
+  primaryNavigation[2], // Weather
+  primaryNavigation[5], // Market Prices
+  primaryNavigation[6], // Voice Assistant
+  primaryNavigation[11], // Notifications
+];
+
 export const utilityNavigation: NavigationItem[] = [
   {
     label: "Notifications",
@@ -135,10 +179,42 @@ export const utilityNavigation: NavigationItem[] = [
 export const authNavigation = [
   {
     label: "Login",
-    href: "/auth/login",
+    href: "/?auth=login",
   },
   {
     label: "Sign up",
-    href: "/auth/signup",
+    href: "/?auth=signup",
   },
 ];
+
+// Hindi labels for the navigation chrome, keyed by route / group title.
+// Used by the sidebar and mobile bottom navigation to translate menu items.
+export const navGroupTitlesHi: Record<string, string> = {
+  Overview: "अवलोकन",
+  Advisory: "सलाह",
+  "Finance & Market": "वित्त और बाज़ार",
+  "Assistant & Account": "सहायक और खाता",
+};
+
+export const navItemLabelsHi: Record<string, string> = {
+  "/dashboard": "डैशबोर्ड",
+  "/crop-recommendation": "फसल सलाह",
+  "/weather-intelligence": "मौसम जानकारी",
+  "/irrigation-planning": "सिंचाई योजना",
+  "/disease-detection": "फसल रोग",
+  "/market-prices": "बाज़ार भाव",
+  "/voice-assistant": "वॉइस असिस्टेंट",
+  "/expense-tracker": "खर्च ट्रैकर",
+  "/profit-calculator": "लाभ कैलकुलेटर",
+  "/crop-calendar": "फसल कैलेंडर",
+  "/pest-alerts": "कीट चेतावनी",
+  "/notifications": "सूचनाएँ",
+  "/profile": "प्रोफ़ाइल",
+  "/settings": "सेटिंग्स",
+  "/help": "मदद और जानकारी",
+};
+
+/** Returns the localized navigation label for a route. */
+export function navLabel(href: string, fallback: string, lang: "en" | "hi") {
+  return lang === "en" ? fallback : navItemLabelsHi[href] ?? fallback;
+}

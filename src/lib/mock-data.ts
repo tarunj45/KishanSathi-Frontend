@@ -1,7 +1,10 @@
 import {
   BellRing,
+  Calculator,
+  CalendarDays,
   CloudSun,
   Droplets,
+  FlaskConical,
   IndianRupee,
   Mic,
   ShieldCheck,
@@ -15,6 +18,8 @@ import type {
   LandingHighlight,
   ModuleSummary,
   ModuleTeaser,
+  RoadmapPhase,
+  ServiceItem,
 } from "@/lib/types";
 
 export const landingHighlights: LandingHighlight[] = [
@@ -64,6 +69,120 @@ export const featureCards: FeatureCard[] = [
     label: "Alerts and reminders",
     description: "Surface disease warnings, pest reports, and seasonal reminders.",
     icon: BellRing,
+  },
+];
+
+export const services: ServiceItem[] = [
+  {
+    label: "Crop Advisory",
+    description:
+      "Get the best crop suggestions for your soil, season, and local climate with clear, farmer-friendly reasoning.",
+    href: "/crop-recommendation",
+    icon: Sprout,
+    accent: "green",
+  },
+  {
+    label: "Weather Intelligence",
+    description:
+      "Hyper-local forecasts, rainfall alerts, and field advisories to plan spraying, sowing, and harvest.",
+    href: "/weather-intelligence",
+    icon: CloudSun,
+    accent: "blue",
+  },
+  {
+    label: "Irrigation Planning",
+    description:
+      "Smart watering schedules that combine rainfall, soil moisture, and crop stage to save water and power.",
+    href: "/irrigation-planning",
+    icon: Droplets,
+    accent: "blue",
+  },
+  {
+    label: "Disease Detection",
+    description:
+      "Snap a photo of an affected leaf and get AI-assisted diagnosis with practical treatment steps.",
+    href: "/disease-detection",
+    icon: FlaskConical,
+    accent: "rose",
+  },
+  {
+    label: "Market Prices",
+    description:
+      "Track live mandi rates and short-term price trends so you sell at the right time for the best margin.",
+    href: "/market-prices",
+    icon: IndianRupee,
+    accent: "amber",
+  },
+  {
+    label: "Hindi Voice Assistant",
+    description:
+      "Ask questions in Hindi or English by voice and get simple, spoken guidance right in the field.",
+    href: "/voice-assistant",
+    icon: Mic,
+    accent: "violet",
+  },
+  {
+    label: "Profit Calculator",
+    description:
+      "Estimate yield, costs, and expected margin before harvest to make confident selling decisions.",
+    href: "/profit-calculator",
+    icon: Calculator,
+    accent: "green",
+  },
+  {
+    label: "Crop Calendar",
+    description:
+      "Season-wise reminders for sowing, irrigation, fertilizing, and harvest so nothing is missed.",
+    href: "/crop-calendar",
+    icon: CalendarDays,
+    accent: "amber",
+  },
+];
+
+export const roadmap: RoadmapPhase[] = [
+  {
+    phase: "Phase 1",
+    title: "Farmer-first frontend",
+    timeframe: "Now",
+    status: "active",
+    points: [
+      "Mobile and tablet friendly dashboard with all advisory modules",
+      "Bilingual-ready interface (English + Hindi)",
+      "Clean, low-bandwidth design for entry-level smartphones",
+    ],
+  },
+  {
+    phase: "Phase 2",
+    title: "Live data & AI models",
+    timeframe: "Next",
+    status: "planned",
+    points: [
+      "Real weather, mandi price, and soil data via FastAPI services",
+      "Crop disease detection powered by an image ML model",
+      "Personalized crop recommendation engine",
+    ],
+  },
+  {
+    phase: "Phase 3",
+    title: "Voice & offline support",
+    timeframe: "Upcoming",
+    status: "planned",
+    points: [
+      "Conversational Hindi voice assistant with spoken replies",
+      "Offline-first PWA for low-connectivity villages",
+      "Push notifications for weather and pest alerts",
+    ],
+  },
+  {
+    phase: "Phase 4",
+    title: "Community & marketplace",
+    timeframe: "Future",
+    status: "planned",
+    points: [
+      "Village-level pest outbreak reporting and alerts",
+      "Direct buyer connections and produce listings",
+      "Access to schemes, subsidies, and credit guidance",
+    ],
   },
 ];
 

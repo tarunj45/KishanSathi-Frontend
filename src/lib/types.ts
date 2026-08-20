@@ -43,6 +43,27 @@ export interface ModuleTeaser {
   href: string;
 }
 
+export interface ServiceItem {
+  label: string;
+  description: string;
+  href: string;
+  icon: LucideIcon;
+  accent: "green" | "amber" | "blue" | "rose" | "violet";
+}
+
+export interface RoadmapPhase {
+  phase: string;
+  title: string;
+  timeframe: string;
+  status: "done" | "active" | "planned";
+  points: string[];
+}
+
+export interface NavigationGroup {
+  title: string;
+  items: NavigationItem[];
+}
+
 export interface StatCard {
   label: string;
   value: string;
